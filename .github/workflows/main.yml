@@ -16,14 +16,14 @@ jobs:
           pip install unittest
           pip install coverage
           pip install pyyaml
-          pip install pylint pylint-json2html
+          pip install pylint-json2html
       - name: Run Test Coverage
         run: |
           coverage run -m unittest Test_Function.py
           coverage report -m
           coverage html
-        - name: Push The reports
-          run: |
+      - name: Push The reports
+        run: |
           git config user.name GitHubActions
           git config user.emal HitHubActions@github.com
           git add .
