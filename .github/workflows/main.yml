@@ -24,7 +24,7 @@ jobs:
       - name: Push The reports
         run: |
           git config user.name GitHubActions
-          git config user.emal HitHubActions@github.com
+          git config user.email HitHubActions@github.com
           git add .
           git commit -m "Coverage report is updated"
           git push
