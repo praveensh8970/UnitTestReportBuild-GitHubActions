@@ -21,6 +21,8 @@ jobs:
           coverage run -m unittest test_function.py
           coverage report -m
           coverage html
+          cd htmlcov
+          rm .gitignore
       - name: Push The reports
         run: |
           git config user.name GitHubActions
