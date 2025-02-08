@@ -1,0 +1,33 @@
+name: Generate test Coverage Report
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+      - name: Setup Python
+        uses: actions/setup-python@v5.4.0
+        with:
+          python-version: '3.10'
+      - name: Install Depenendecies
+        run: |
+          python -m pip install --upgrade pip
+          pip install unittest
+          pip install coverage
+          pip install pyyaml
+          pip install pylint pylint-json2html
+      - name: Run Test Coverage
+        run: |
+          coverage run -m unittest Test_Function.py
+          coverage report -m
+          coverage html
+        - name: Push The reports
+          run: |
+          git config user.name GitHubActions
+          git config user.emal HitHubActions@github.com
+          git add .
+          git commit -m "Coverage report is updated"
+          git push
+          
+  
