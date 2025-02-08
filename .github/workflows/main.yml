@@ -18,7 +18,7 @@ jobs:
           pip install pylint-json2html
       - name: Run Test Coverage
         run: |
-          coverage run -m unittest Test_Function.py
+          coverage run -m unittest test_function.py
           coverage report -m
           coverage html
       - name: Push The reports
