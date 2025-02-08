@@ -1,6 +1,6 @@
 # test_my_module.py
 import unittest
-from Function import add, subtract
+from function import add, subtract
 
 class TestMyModule(unittest.TestCase):
     def test_add(self):
